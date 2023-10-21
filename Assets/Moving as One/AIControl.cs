@@ -5,12 +5,14 @@ using UnityEngine.AI;
 
 public class AIControl : MonoBehaviour
 {
-    public GameObject goal;
+    GameObject [] goalLocations;
     NavMeshAgent agent;
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
-        agent.SetDestination(goal.transform.position);
+        goalLocations = GameObject.FindGameObjectsWithTag("goal");
+        int i = Random.Range(0, goalLocations.Length);
+        agent.SetDestination(goalLocations[i].transform.position);
     }
 
     
