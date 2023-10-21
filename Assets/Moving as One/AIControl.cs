@@ -7,12 +7,15 @@ public class AIControl : MonoBehaviour
 {
     GameObject [] goalLocations;
     NavMeshAgent agent;
+    Animator anim;
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
         goalLocations = GameObject.FindGameObjectsWithTag("goal");
         int i = Random.Range(0, goalLocations.Length);
         agent.SetDestination(goalLocations[i].transform.position);
+        anim = this.GetComponent<Animator>();
+        anim.SetTrigger("isWalking");
     }
 
     
