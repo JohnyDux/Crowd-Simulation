@@ -14,6 +14,10 @@ public class Flock : MonoBehaviour
     
     void Update()
     {
+        if(Random.Range(0, 100) < 10)
+        {
+            speed = Random.Range(FlockManager.FM.minSpeed, FlockManager.FM.maxSpeed);
+        }
         ApplyRules();
         this.transform.Translate(0, 0, speed * Time.deltaTime);
     }
@@ -52,7 +56,7 @@ public class Flock : MonoBehaviour
 
         if(groupSize > 0)
         {
-            vcentre = vcentre / groupSize;
+            vcentre = vcentre / groupSize + (FlockManager.FM.goalPos - this.transform.position);
             speed = gSpeed / groupSize;
 
             Vector3 direction = (vcentre + vavoid) - transform.position;
