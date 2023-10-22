@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class FlockManager : MonoBehaviour
 {
+    public static FlockManager FM;
     public GameObject fishPrefab;
     public int numFish = 20;
     public GameObject[] allFish;
     public Vector3 swimLimits = new Vector3(5, 5, 5);
+
+    [Header("Fish Settings")]
+    [Range(0.0f, 5.0f)]
+    public float minSpeed;
+    [Range(0.0f, 5.0f)]
+    public float maxSpeed;
 
     void Start()
     {
@@ -19,6 +26,7 @@ public class FlockManager : MonoBehaviour
                                                                 Random.Range(-swimLimits.z, swimLimits.z));
             allFish[i] = Instantiate(fishPrefab, pos, Quaternion.identity);
         }
+        FM = this;
     }
 
     

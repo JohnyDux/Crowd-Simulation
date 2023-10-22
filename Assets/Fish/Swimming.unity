@@ -420,3 +420,5 @@ MonoBehaviour:
   numFish: 20
   allFish: []
   swimLimits: {x: 5, y: 5, z: 5}
+  minSpeed: 0
+  maxSpeed: 0
