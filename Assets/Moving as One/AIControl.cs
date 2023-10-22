@@ -9,7 +9,7 @@ public class AIControl : MonoBehaviour
     NavMeshAgent agent;
     Animator anim;
     float speedMult;
-    float detectionRadius = 5;
+    float detectionRadius = 20;
     float fleeRadius = 10;
     void Start()
     {
