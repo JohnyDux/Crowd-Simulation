@@ -24,7 +24,7 @@ public class AIControl : MonoBehaviour
 
     void ResetAgent()
     {
-        speedMult = Random.Range(0.5f, 2);
+        speedMult = Random.Range(0.1f, 1.5f);
         anim.SetFloat("speedMult", speedMult);
         agent.speed *= speedMult;
         anim.SetTrigger("isWalking");
@@ -54,7 +54,9 @@ public class AIControl : MonoBehaviour
     
     void Update()
     {
-        if(agent.remainingDistance < 1){
+        if(agent.remainingDistance < 1)
+        {
+            ResetAgent();
             int i = Random.Range(0, goalLocations.Length);
             agent.SetDestination(goalLocations[i].transform.position);
         }
